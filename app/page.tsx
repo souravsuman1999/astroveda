@@ -86,6 +86,7 @@ export default function Home() {
           )}
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
             <ul className="nav-links">
+              <li><a href="/blogs" onClick={closeMenu}>Blog</a></li>
               <li><a href="#problem" onClick={closeMenu}>Problem</a></li>
               <li><a href="#solution" onClick={closeMenu}>Solution</a></li>
               <li><a href="#why" onClick={closeMenu}>Why It Matters</a></li>
