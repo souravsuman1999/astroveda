@@ -140,41 +140,38 @@ export default function Home() {
 
       {/* Problem Section */}
       <section id="problem" className="section problem-section">
-        {/* <div className="section-background-image" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=1920&q=80)' }}></div> */}
-        {/* <div className="section-overlay"></div> */}
+        <div className="section-background-image" style={{ backgroundImage: 'url(/img/gasstaton.webp)' }}></div>
+        <div className="section-overlay"></div>
         <div className="container">
           <div className="section-header">
             <div className="section-number">01</div>
-            <h2 className="section-title">The Problem</h2>
+            <h2 className="section-title">Problem</h2>
             <p className="section-subtitle">
-              Satellite ground infrastructure was not built for today's geopolitical, quantum, and security realities.
+              <strong>The ground segment is the weak link in the quantum era.</strong>
             </p>
           </div>
-          <div className="problem-grid">
-            <div className="problem-card">
-              <div className="card-icon">🔗</div>
-              <h3>Fragmented Networks</h3>
-              <p>Legacy RF networks are fragmented, expensive, and slow to scale</p>
-            </div>
-            <div className="problem-card">
-              <div className="card-icon">⚛️</div>
-              <h3>Quantum Vulnerability</h3>
-              <p>Optical and quantum-safe readiness is largely absent</p>
-            </div>
-            <div className="problem-card">
-              <div className="card-icon">🌐</div>
-              <h3>Foreign Control</h3>
-              <p>Data often flows through foreign-controlled infrastructure</p>
-            </div>
-            <div className="problem-card">
-              <div className="card-icon">🏛️</div>
-              <h3>Limited Sovereignty</h3>
-              <p>Sovereign control is limited or impossible</p>
+          <div className="problem-content">
+            <p className="problem-intro">
+              Quantum risk isn't a distant, hypothetical issue. Adversaries can <strong>capture encrypted satellite traffic today and decrypt it later</strong> ("record now, decrypt later"). Because space links traverse open airspace, years of sensitive operations can be harvested long before quantum decryption becomes routine.
+            </p>
+            <div className="problem-stakes">
+              <h3 className="stakes-title">What's at stake?</h3>
+              <ul className="stakes-list">
+                <li>
+                  <strong>Today's trust foundation breaks.</strong> Once cryptographically relevant quantum computers arrive, RSA/ECC-based security becomes vulnerable—putting TT&C, ranging, software updates, payload tasking, and station-to-station links at risk.
+                </li>
+                <li>
+                  <strong>The ground segment is the primary attack surface.</strong> Most cyber intrusions target ground infrastructure—not spacecraft—and it was not designed for quantum-era adversaries.
+                </li>
+                <li>
+                  <strong>Patching isn't enough.</strong> This requires a structural upgrade, not incremental fixes: a ground architecture designed for post-quantum security from day one.
+                </li>
+              </ul>
             </div>
           </div>
           <div className="section-footer">
             <p className="highlight-text">
-              For governments, defense, and critical enterprises, this is no longer acceptable.
+              <strong>Bottom line:</strong> Every civil, commercial, and defense operator will need a quantum-safe ground upgrade. The question is <strong>when</strong>, not <strong>if</strong>.
             </p>
           </div>
         </div>

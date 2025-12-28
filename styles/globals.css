@@ -630,6 +630,65 @@ a:hover {
   line-height: 1.7;
 }
 
+.problem-content {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.problem-intro {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.problem-intro strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.problem-stakes {
+  margin-top: 3rem;
+}
+
+.stakes-title {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.stakes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stakes-list li {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.stakes-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stakes-list li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 /* Solution Section */
 .solution-section {
   background: var(--bg-primary);
