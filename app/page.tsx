@@ -675,7 +675,7 @@ export default function Home() {
             </p>
           </div>
           <div className="contact-wrapper">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            {/* <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Name *</label>
                 <input
@@ -716,7 +716,7 @@ export default function Home() {
                 <span>Submit Inquiry</span>
                 <span className="btn-arrow">→</span>
               </button>
-            </form>
+            </form> */}
             <div className="contact-info">
               <div className="contact-item">
                 <div className="contact-icon">📧</div>

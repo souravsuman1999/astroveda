@@ -5,13 +5,44 @@
   .container {
     padding: 0 1rem;
   }
+  .solution-left{
+    position: relative;
+    top: unset;
+  }
+  .why-now-card::before,
+  .stat-card::before{
+    display: none;
+  }
+  .stat-number{
+    font-size: 1.8rem;
+  }
+  .why-now-card,
+  .stat-card{
+    padding: 1.3rem;
+  }
+  .why-now-number{
+    font-size: 2.5rem;
+  }
+  .feature-content h3{
+    font-size: 1.3rem;
+  }
+  .feature-content p{
+    line-height: 150%;
+  }
+  .features-showcase{
+    gap: 2rem;
+  }
+  .who-card{
+    padding: 1.3rem;
+
+  }
 
   h1 {
     font-size: 2.5rem;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   h3 {
@@ -95,10 +126,13 @@
     flex-direction: column;
     width: 100%;
   }
-
+.section-subtitle{
+  font-size: 1rem;
+}
   .btn {
     width: 100%;
     justify-content: center;
+    padding-inline: 16px;
   }
 
   .section {
@@ -174,6 +208,9 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  .problem-card{
+    padding: 1.3rem;
+  }
 
   .feature-image {
     height: 250px;
@@ -182,7 +219,12 @@
   .contact-form {
     padding: 2rem 1.5rem;
   }
-
+.contact-info{
+  flex-direction: column;
+}
+.contact-item{
+  max-width: 100%;
+}
   .contact-wrapper {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -199,6 +241,7 @@
     top: auto;
     order: -1;
     min-height: 400px;
+    overflow: hidden;
   }
 
   .seed-vector-container {
@@ -240,6 +283,10 @@
     width: 100%;
     text-align: center;
   }
+
+  .problem-card h3{
+    font-size: 1.2rem;
+  }
 }
 
 /* Small Devices (landscape phones, 576px and up) */
@@ -253,7 +300,7 @@
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   .hero-title {
@@ -328,7 +375,7 @@
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 1.8rem;
   }
 
   .hero-title {

@@ -1525,13 +1525,15 @@ a:hover {
 }
 
 .contact-wrapper {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  display: flex;
+  flex-direction: row;
   gap: 4rem;
   margin-top: 3rem;
-  max-width: 1200px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .contact-form {
@@ -1573,13 +1575,19 @@ a:hover {
 
 .contact-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
+
 
 .contact-item {
   display: flex;
   gap: 1.5rem;
+  max-width: 32%;
+  width: 100%;
   padding: 2rem;
   background: var(--bg-primary);
   border-radius: 20px;
