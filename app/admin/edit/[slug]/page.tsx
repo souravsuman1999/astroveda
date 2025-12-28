@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter, useParams } from 'next/navigation'
+import ImageUpload from '@/components/ImageUpload'
 
 export default function EditBlogPage() {
   const router = useRouter()
@@ -63,6 +64,24 @@ export default function EditBlogPage() {
     }
   }
 
+  const generateSlug = (title: string) => {
+    return title
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+  }
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const title = e.target.value
+    setFormData({
+      ...formData,
+      title,
+      slug: generateSlug(title), // Auto-update slug from title
+    })
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
@@ -99,8 +118,26 @@ export default function EditBlogPage() {
 
   if (loading || !authenticated) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-        <p>Loading...</p>
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        minHeight: '100vh',
+        background: 'var(--gradient-hero)',
+        color: '#fff'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div className="spinner" style={{
+            width: '50px',
+            height: '50px',
+            border: '4px solid rgba(255, 255, 255, 0.2)',
+            borderTop: '4px solid #3b82f6',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+            margin: '0 auto 1rem'
+          }} />
+          <p>Loading...</p>
+        </div>
       </div>
     )
   }
@@ -109,185 +146,291 @@ export default function EditBlogPage() {
     <div style={{
       minHeight: '100vh',
       padding: '2rem',
-      maxWidth: '900px',
-      margin: '0 auto'
+      maxWidth: '1000px',
+      margin: '0 auto',
+      background: 'var(--gradient-hero)',
+      color: '#fff',
+      position: 'relative'
     }}>
-      <header style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Edit Blog</h1>
-        <p style={{ opacity: 0.7 }}>Update your blog post</p>
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%)',
+        pointerEvents: 'none'
+      }} />
+
+      <header style={{ 
+        marginBottom: '2rem',
+        position: 'relative',
+        zIndex: 1
+      }}>
+        <h1 style={{ 
+          fontSize: '2.5rem', 
+          marginBottom: '0.5rem',
+          background: 'var(--gradient-blue)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text'
+        }}>
+          Edit Blog
+        </h1>
+        <p style={{ opacity: 0.7, fontSize: '1rem' }}>Update your blog post</p>
       </header>
 
       {error && !formData.title && (
         <div style={{
           padding: '1rem',
           borderRadius: '8px',
-          background: 'rgba(255, 107, 107, 0.2)',
-          border: '1px solid rgba(255, 107, 107, 0.3)',
+          background: 'rgba(239, 68, 68, 0.2)',
+          border: '1px solid rgba(239, 68, 68, 0.3)',
           marginBottom: '1.5rem',
-          color: '#ff6b6b'
+          color: '#fca5a5',
+          fontSize: '0.9rem',
+          position: 'relative',
+          zIndex: 1
         }}>
           {error}
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '1.5rem' }}>
-          <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-            Title *
-          </label>
-          <input
-            type="text"
-            value={formData.title}
-            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-            required
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              color: 'inherit',
-              fontSize: '1rem'
-            }}
-          />
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-            Slug *
-          </label>
-          <input
-            type="text"
-            value={formData.slug}
-            onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-            required
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              color: 'inherit',
-              fontSize: '1rem'
-            }}
-          />
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-            Short Description
-          </label>
-          <textarea
-            value={formData.short_description}
-            onChange={(e) => setFormData({ ...formData, short_description: e.target.value })}
-            rows={3}
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              color: 'inherit',
-              fontSize: '1rem',
-              fontFamily: 'inherit',
-              resize: 'vertical'
-            }}
-          />
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-            Cover Image URL
-          </label>
-          <input
-            type="url"
-            value={formData.cover_image}
-            onChange={(e) => setFormData({ ...formData, cover_image: e.target.value })}
-            placeholder="https://example.com/image.jpg"
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              color: 'inherit',
-              fontSize: '1rem'
-            }}
-          />
-        </div>
-
-        <div style={{ marginBottom: '1.5rem' }}>
-          <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>
-            Content * (HTML)
-          </label>
-          <textarea
-            value={formData.content}
-            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-            required
-            rows={20}
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              color: 'inherit',
-              fontSize: '1rem',
-              fontFamily: 'monospace',
-              resize: 'vertical'
-            }}
-          />
-        </div>
-
-        {error && formData.title && (
-          <div style={{
-            padding: '1rem',
-            borderRadius: '8px',
-            background: 'rgba(255, 107, 107, 0.2)',
-            border: '1px solid rgba(255, 107, 107, 0.3)',
-            marginBottom: '1.5rem',
-            color: '#ff6b6b'
-          }}>
-            {error}
-          </div>
-        )}
-
-        <div style={{ display: 'flex', gap: '1rem' }}>
-          <button
-            type="submit"
-            disabled={saving}
-            style={{
-              padding: '0.75rem 2rem',
-              borderRadius: '8px',
-              border: 'none',
-              background: 'rgba(255, 255, 255, 0.1)',
-              color: 'inherit',
-              fontSize: '1rem',
-              cursor: saving ? 'not-allowed' : 'pointer',
+      <form onSubmit={handleSubmit} style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{
+          background: 'rgba(15, 23, 42, 0.6)',
+          backdropFilter: 'blur(10px)',
+          padding: '2rem',
+          borderRadius: '16px',
+          border: '1px solid rgba(59, 130, 246, 0.2)',
+          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)'
+        }}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{ 
+              display: 'block', 
+              marginBottom: '0.5rem', 
               fontWeight: '600',
-              opacity: saving ? 0.5 : 1
-            }}
-          >
-            {saving ? 'Saving...' : 'Update Blog'}
-          </button>
-          <button
-            type="button"
-            onClick={() => router.push('/admin')}
-            style={{
-              padding: '0.75rem 2rem',
-              borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              background: 'transparent',
-              color: 'inherit',
               fontSize: '1rem',
-              cursor: 'pointer'
-            }}
-          >
-            Cancel
-          </button>
+              color: '#e2e8f0'
+            }}>
+              Title *
+            </label>
+            <input
+              type="text"
+              value={formData.title}
+              onChange={handleTitleChange}
+              required
+              style={{
+                width: '100%',
+                padding: '0.75rem 1rem',
+                borderRadius: '8px',
+                border: '1px solid rgba(59, 130, 246, 0.3)',
+                background: 'rgba(15, 23, 42, 0.8)',
+                color: '#fff',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease'
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = 'rgba(59, 130, 246, 0.6)'
+                e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)'
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = 'rgba(59, 130, 246, 0.3)'
+                e.target.style.boxShadow = 'none'
+              }}
+            />
+          </div>
+
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{ 
+              display: 'block', 
+              marginBottom: '0.5rem', 
+              fontWeight: '600',
+              fontSize: '1rem',
+              color: '#e2e8f0'
+            }}>
+              Slug * (Auto-generated from title)
+            </label>
+            <input
+              type="text"
+              value={formData.slug}
+              onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+              required
+              style={{
+                width: '100%',
+                padding: '0.75rem 1rem',
+                borderRadius: '8px',
+                border: '1px solid rgba(59, 130, 246, 0.3)',
+                background: 'rgba(15, 23, 42, 0.8)',
+                color: '#93c5fd',
+                fontSize: '0.95rem',
+                fontFamily: 'monospace',
+                transition: 'all 0.3s ease'
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = 'rgba(59, 130, 246, 0.6)'
+                e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)'
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = 'rgba(59, 130, 246, 0.3)'
+                e.target.style.boxShadow = 'none'
+              }}
+            />
+          </div>
+
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{ 
+              display: 'block', 
+              marginBottom: '0.5rem', 
+              fontWeight: '600',
+              fontSize: '1rem',
+              color: '#e2e8f0'
+            }}>
+              Short Description
+            </label>
+            <textarea
+              value={formData.short_description}
+              onChange={(e) => setFormData({ ...formData, short_description: e.target.value })}
+              rows={3}
+              style={{
+                width: '100%',
+                padding: '0.75rem 1rem',
+                borderRadius: '8px',
+                border: '1px solid rgba(59, 130, 246, 0.3)',
+                background: 'rgba(15, 23, 42, 0.8)',
+                color: '#fff',
+                fontSize: '1rem',
+                fontFamily: 'inherit',
+                resize: 'vertical',
+                transition: 'all 0.3s ease'
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = 'rgba(59, 130, 246, 0.6)'
+                e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)'
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = 'rgba(59, 130, 246, 0.3)'
+                e.target.style.boxShadow = 'none'
+              }}
+            />
+          </div>
+
+          <ImageUpload
+            value={formData.cover_image}
+            onChange={(url) => setFormData({ ...formData, cover_image: url })}
+            label="Cover Image"
+          />
+
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{ 
+              display: 'block', 
+              marginBottom: '0.5rem', 
+              fontWeight: '600',
+              fontSize: '1rem',
+              color: '#e2e8f0'
+            }}>
+              Content * (HTML)
+            </label>
+            <textarea
+              value={formData.content}
+              onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+              required
+              rows={20}
+              style={{
+                width: '100%',
+                padding: '0.75rem 1rem',
+                borderRadius: '8px',
+                border: '1px solid rgba(59, 130, 246, 0.3)',
+                background: 'rgba(15, 23, 42, 0.8)',
+                color: '#fff',
+                fontSize: '0.95rem',
+                fontFamily: 'monospace',
+                resize: 'vertical',
+                transition: 'all 0.3s ease'
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = 'rgba(59, 130, 246, 0.6)'
+                e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)'
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = 'rgba(59, 130, 246, 0.3)'
+                e.target.style.boxShadow = 'none'
+              }}
+            />
+          </div>
+
+          {error && formData.title && (
+            <div style={{
+              padding: '1rem',
+              borderRadius: '8px',
+              background: 'rgba(239, 68, 68, 0.2)',
+              border: '1px solid rgba(239, 68, 68, 0.3)',
+              marginBottom: '1.5rem',
+              color: '#fca5a5',
+              fontSize: '0.9rem'
+            }}>
+              {error}
+            </div>
+          )}
+
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <button
+              type="submit"
+              disabled={saving}
+              style={{
+                padding: '0.75rem 2rem',
+                borderRadius: '8px',
+                border: 'none',
+                background: 'var(--gradient-blue)',
+                color: '#fff',
+                fontSize: '1rem',
+                cursor: saving ? 'not-allowed' : 'pointer',
+                fontWeight: '600',
+                opacity: saving ? 0.5 : 1,
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                if (!saving) {
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(59, 130, 246, 0.4)'
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 4px 16px rgba(59, 130, 246, 0.3)'
+              }}
+            >
+              {saving ? 'Saving...' : 'Update Blog'}
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push('/admin')}
+              style={{
+                padding: '0.75rem 2rem',
+                borderRadius: '8px',
+                border: '1px solid rgba(59, 130, 246, 0.3)',
+                background: 'rgba(15, 23, 42, 0.6)',
+                color: '#93c5fd',
+                fontSize: '1rem',
+                cursor: 'pointer',
+                fontWeight: '600',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(59, 130, 246, 0.2)'
+                e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(15, 23, 42, 0.6)'
+                e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)'
+              }}
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </form>
     </div>
   )
 }
-

@@ -109,8 +109,26 @@ export default function AdminPage() {
 
   if (loading) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-        <p>Loading...</p>
+      <div className="admin-loading" style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        background: 'var(--gradient-hero)',
+        color: '#fff'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div className="spinner" style={{
+            width: '50px',
+            height: '50px',
+            border: '4px solid rgba(255, 255, 255, 0.2)',
+            borderTop: '4px solid #3b82f6',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+            margin: '0 auto 1rem'
+          }} />
+          <p>Loading...</p>
+        </div>
       </div>
     )
   }
@@ -122,22 +140,55 @@ export default function AdminPage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '2rem'
+        padding: '2rem',
+        background: 'var(--gradient-hero)',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
         <div style={{
-          background: 'rgba(255, 255, 255, 0.05)',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%)',
+          pointerEvents: 'none'
+        }} />
+        <div style={{
+          background: 'rgba(15, 23, 42, 0.8)',
+          backdropFilter: 'blur(20px)',
           padding: '3rem',
-          borderRadius: '12px',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          borderRadius: '16px',
+          border: '1px solid rgba(59, 130, 246, 0.2)',
+          boxShadow: '0 20px 64px rgba(0, 0, 0, 0.4)',
           maxWidth: '400px',
-          width: '100%'
+          width: '100%',
+          position: 'relative',
+          zIndex: 1
         }}>
-          <h1 style={{ fontSize: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
-            Admin Login
-          </h1>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🚀</div>
+            <h1 style={{ 
+              fontSize: '2rem', 
+              marginBottom: '0.5rem',
+              background: 'var(--gradient-blue)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
+              Admin Login
+            </h1>
+            <p style={{ opacity: 0.7, fontSize: '0.9rem' }}>AstraVeda Blog Management</p>
+          </div>
           <form onSubmit={handleLogin}>
             <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+              <label style={{ 
+                display: 'block', 
+                marginBottom: '0.5rem',
+                fontSize: '0.9rem',
+                fontWeight: '600',
+                color: '#e2e8f0'
+              }}>
                 Username
               </label>
               <input
@@ -147,17 +198,32 @@ export default function AdminPage() {
                 required
                 style={{
                   width: '100%',
-                  padding: '0.75rem',
+                  padding: '0.75rem 1rem',
                   borderRadius: '8px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  color: 'inherit',
-                  fontSize: '1rem'
+                  border: '1px solid rgba(59, 130, 246, 0.3)',
+                  background: 'rgba(15, 23, 42, 0.6)',
+                  color: '#fff',
+                  fontSize: '1rem',
+                  transition: 'all 0.3s ease'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = 'rgba(59, 130, 246, 0.6)'
+                  e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)'
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(59, 130, 246, 0.3)'
+                  e.target.style.boxShadow = 'none'
                 }}
               />
             </div>
             <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+              <label style={{ 
+                display: 'block', 
+                marginBottom: '0.5rem',
+                fontSize: '0.9rem',
+                fontWeight: '600',
+                color: '#e2e8f0'
+              }}>
                 Password
               </label>
               <input
@@ -167,19 +233,36 @@ export default function AdminPage() {
                 required
                 style={{
                   width: '100%',
-                  padding: '0.75rem',
+                  padding: '0.75rem 1rem',
                   borderRadius: '8px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  color: 'inherit',
-                  fontSize: '1rem'
+                  border: '1px solid rgba(59, 130, 246, 0.3)',
+                  background: 'rgba(15, 23, 42, 0.6)',
+                  color: '#fff',
+                  fontSize: '1rem',
+                  transition: 'all 0.3s ease'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = 'rgba(59, 130, 246, 0.6)'
+                  e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)'
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(59, 130, 246, 0.3)'
+                  e.target.style.boxShadow = 'none'
                 }}
               />
             </div>
             {loginError && (
-              <p style={{ color: '#ff6b6b', marginBottom: '1rem', fontSize: '0.9rem' }}>
+              <div style={{
+                padding: '0.75rem',
+                borderRadius: '8px',
+                background: 'rgba(239, 68, 68, 0.2)',
+                border: '1px solid rgba(239, 68, 68, 0.3)',
+                marginBottom: '1rem',
+                color: '#fca5a5',
+                fontSize: '0.9rem'
+              }}>
                 {loginError}
-              </p>
+              </div>
             )}
             <button
               type="submit"
@@ -188,11 +271,21 @@ export default function AdminPage() {
                 padding: '0.75rem',
                 borderRadius: '8px',
                 border: 'none',
-                background: 'rgba(255, 255, 255, 0.1)',
-                color: 'inherit',
+                background: 'var(--gradient-blue)',
+                color: '#fff',
                 fontSize: '1rem',
                 cursor: 'pointer',
-                fontWeight: '600'
+                fontWeight: '600',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(59, 130, 246, 0.4)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 4px 16px rgba(59, 130, 246, 0.3)'
               }}
             >
               Login
@@ -207,30 +300,65 @@ export default function AdminPage() {
     <div className="admin-dashboard" style={{
       minHeight: '100vh',
       padding: '2rem',
-      maxWidth: '1200px',
-      margin: '0 auto'
+      // maxWidth: '1400px',
+      margin: '0 auto',
+      background: 'var(--gradient-hero)',
+      color: '#fff',
+      position: 'relative'
     }}>
+      <div className="container" style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '2rem 1rem',
+        borderRadius: '24px',
+        position: 'relative',
+        zIndex: 2
+      }}>
+      
       <header style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: '3rem',
-        paddingBottom: '1rem',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+        paddingBottom: '1.5rem',
+        borderBottom: '1px solid rgba(59, 130, 246, 0.2)',
+        position: 'relative',
+        zIndex: 1
       }}>
         <div>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Admin Dashboard</h1>
-          <p style={{ opacity: 0.7 }}>Manage your blogs</p>
+          <h1 style={{ 
+            fontSize: '2.5rem', 
+            marginBottom: '0.5rem',
+            background: 'var(--gradient-blue)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            Admin Dashboard
+          </h1>
+          <p style={{ opacity: 0.7, fontSize: '1rem' }}>Manage your blogs</p>
         </div>
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <Link
             href="/blogs"
             style={{
-              padding: '0.5rem 1rem',
+              padding: '0.75rem 1.5rem',
               borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
+              border: '1px solid rgba(59, 130, 246, 0.3)',
+              background: 'rgba(15, 23, 42, 0.6)',
               textDecoration: 'none',
-              color: 'inherit'
+              color: '#fff',
+              fontSize: '0.9rem',
+              fontWeight: '600',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(59, 130, 246, 0.2)'
+              e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(15, 23, 42, 0.6)'
+              e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)'
             }}
           >
             View Blogs
@@ -238,12 +366,23 @@ export default function AdminPage() {
           <button
             onClick={handleLogout}
             style={{
-              padding: '0.5rem 1rem',
+              padding: '0.75rem 1.5rem',
               borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              background: 'rgba(255, 107, 107, 0.2)',
-              color: 'inherit',
-              cursor: 'pointer'
+              border: '1px solid rgba(239, 68, 68, 0.3)',
+              background: 'rgba(239, 68, 68, 0.1)',
+              color: '#fca5a5',
+              cursor: 'pointer',
+              fontSize: '0.9rem',
+              fontWeight: '600',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(239, 68, 68, 0.2)'
+              e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.5)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)'
+              e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.3)'
             }}
           >
             Logout
@@ -251,69 +390,133 @@ export default function AdminPage() {
         </div>
       </header>
 
-      <div style={{ marginBottom: '2rem' }}>
+      <div style={{ marginBottom: '2rem', position: 'relative', zIndex: 1 }}>
         <Link
           href="/admin/new"
           style={{
-            display: 'inline-block',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
             padding: '0.75rem 1.5rem',
             borderRadius: '8px',
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: 'var(--gradient-blue)',
             textDecoration: 'none',
-            color: 'inherit',
-            fontWeight: '600'
+            color: '#fff',
+            fontWeight: '600',
+            fontSize: '1rem',
+            boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-2px)'
+            e.currentTarget.style.boxShadow = '0 6px 20px rgba(59, 130, 246, 0.4)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)'
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(59, 130, 246, 0.3)'
           }}
         >
-          + New Blog
+          <span>+</span> New Blog
         </Link>
       </div>
 
-      <div className="blogs-list">
+      <div className="blogs-list" style={{ position: 'relative', zIndex: 1 }}>
         {blogs.length === 0 ? (
-          <p style={{ opacity: 0.7, textAlign: 'center', padding: '3rem' }}>
-            No blogs yet. Create your first blog!
-          </p>
+          <div style={{
+            textAlign: 'center',
+            padding: '4rem 2rem',
+            background: 'rgba(15, 23, 42, 0.4)',
+            borderRadius: '16px',
+            border: '1px solid rgba(59, 130, 246, 0.2)'
+          }}>
+            <div style={{ fontSize: '4rem', marginBottom: '1rem', opacity: 0.5 }}>📝</div>
+            <p style={{ opacity: 0.7, fontSize: '1.1rem' }}>
+              No blogs yet. Create your first blog!
+            </p>
+          </div>
         ) : (
           <div style={{
             display: 'grid',
-            gap: '1rem'
+            gap: '1.5rem'
           }}>
             {blogs.map((blog) => (
               <div
                 key={blog.id}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
+                  background: 'rgba(15, 23, 42, 0.6)',
+                  backdropFilter: 'blur(10px)',
                   padding: '1.5rem',
                   borderRadius: '12px',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(59, 130, 246, 0.2)',
                   display: 'flex',
                   justifyContent: 'space-between',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.4)'
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.3)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.2)'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.2)'
                 }}
               >
                 <div style={{ flex: 1 }}>
-                  <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+                  <h3 style={{ 
+                    fontSize: '1.25rem', 
+                    marginBottom: '0.5rem',
+                    color: '#fff',
+                    fontWeight: '600'
+                  }}>
                     {blog.title}
                   </h3>
                   {blog.short_description && (
-                    <p style={{ opacity: 0.7, marginBottom: '0.5rem' }}>
+                    <p style={{ 
+                      opacity: 0.7, 
+                      marginBottom: '0.5rem',
+                      fontSize: '0.95rem',
+                      color: '#e2e8f0'
+                    }}>
                       {blog.short_description}
                     </p>
                   )}
-                  <p style={{ fontSize: '0.9rem', opacity: 0.5 }}>
-                    {new Date(blog.created_at).toLocaleDateString()}
+                  <p style={{ 
+                    fontSize: '0.85rem', 
+                    opacity: 0.5,
+                    color: '#cbd5e1'
+                  }}>
+                    {new Date(blog.created_at).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
                   </p>
                 </div>
-                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', gap: '0.75rem' }}>
                   <Link
                     href={`/admin/edit/${blog.slug}`}
                     style={{
                       padding: '0.5rem 1rem',
                       borderRadius: '8px',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      background: 'rgba(59, 130, 246, 0.1)',
                       textDecoration: 'none',
-                      color: 'inherit',
-                      fontSize: '0.9rem'
+                      color: '#93c5fd',
+                      fontSize: '0.9rem',
+                      fontWeight: '600',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.2)'
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)'
+                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)'
                     }}
                   >
                     Edit
@@ -323,11 +526,21 @@ export default function AdminPage() {
                     style={{
                       padding: '0.5rem 1rem',
                       borderRadius: '8px',
-                      border: '1px solid rgba(255, 107, 107, 0.3)',
-                      background: 'rgba(255, 107, 107, 0.1)',
-                      color: 'inherit',
+                      border: '1px solid rgba(239, 68, 68, 0.3)',
+                      background: 'rgba(239, 68, 68, 0.1)',
+                      color: '#fca5a5',
                       cursor: 'pointer',
-                      fontSize: '0.9rem'
+                      fontSize: '0.9rem',
+                      fontWeight: '600',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(239, 68, 68, 0.2)'
+                      e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.5)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)'
+                      e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.3)'
                     }}
                   >
                     Delete
@@ -338,7 +551,8 @@ export default function AdminPage() {
           </div>
         )}
       </div>
+      </div>
+
     </div>
   )
 }
-

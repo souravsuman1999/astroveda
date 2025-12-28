@@ -65,7 +65,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
 
   return (
     <div className="blog-detail-page">
-      <div className="container" style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 2rem' }}>
+      <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '4rem 2rem' }}>
         <Link 
           href="/blogs"
           style={{
@@ -121,7 +121,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
                   src={blog.cover_image}
                   alt={blog.title}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'fill' }}
                   priority
                 />
               </div>
@@ -151,75 +151,6 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
           />
         </article>
       </div>
-
-      <style jsx global>{`
-        .blog-content h1,
-        .blog-content h2,
-        .blog-content h3,
-        .blog-content h4 {
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-          font-weight: 600;
-        }
-        .blog-content h1 { font-size: 2.5rem; }
-        .blog-content h2 { font-size: 2rem; }
-        .blog-content h3 { font-size: 1.5rem; }
-        .blog-content h4 { font-size: 1.25rem; }
-        
-        .blog-content p {
-          margin-bottom: 1.5rem;
-        }
-        
-        .blog-content ul,
-        .blog-content ol {
-          margin-bottom: 1.5rem;
-          padding-left: 2rem;
-        }
-        
-        .blog-content li {
-          margin-bottom: 0.5rem;
-        }
-        
-        .blog-content img {
-          max-width: 100%;
-          height: auto;
-          border-radius: 8px;
-          margin: 2rem 0;
-        }
-        
-        .blog-content a {
-          color: inherit;
-          text-decoration: underline;
-          opacity: 0.8;
-        }
-        
-        .blog-content a:hover {
-          opacity: 1;
-        }
-        
-        .blog-content code {
-          background: rgba(255, 255, 255, 0.1);
-          padding: 0.2rem 0.4rem;
-          border-radius: 4px;
-          font-size: 0.9em;
-        }
-        
-        .blog-content pre {
-          background: rgba(255, 255, 255, 0.05);
-          padding: 1.5rem;
-          border-radius: 8px;
-          overflow-x: auto;
-          margin: 2rem 0;
-        }
-        
-        .blog-content blockquote {
-          border-left: 4px solid rgba(255, 255, 255, 0.3);
-          padding-left: 1.5rem;
-          margin: 2rem 0;
-          opacity: 0.8;
-          font-style: italic;
-        }
-      `}</style>
     </div>
   )
 }
