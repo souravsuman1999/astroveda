@@ -190,43 +190,50 @@ export default function Home() {
               AstraVeda delivers sovereign, quantum-secure Ground Station-as-a-Service.
             </p>
           </div>
-          <div className="solution-hero">
-            <div className="solution-image-wrapper">
-              <div className="solution-image" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&q=80)' }}>
-                <div className="image-glow"></div>
+          
+          <div className="solution-layout">
+            <div className="solution-left">
+              <div className="solution-sticky-content">
+                <div className="quantum-notation">
+                  <span className="ket-bracket ket-left">⟨</span>
+                  <span className="ket-content">4 pillars</span>
+                  <span className="ket-bracket ket-right">⟩</span>
+                </div>
+                {/* <div className="quantum-arrow-inline">→</div> */}
+                <div className="solution-platform-sticky">
+                  <h3 className="platform-title-sticky">One Integrated Platform</h3>
+                  <p className="platform-description-sticky">Combining cutting-edge technology with sovereign-grade security</p>
+                  <p className="platform-subtitle">AstraVeda Platform</p>
+                </div>
               </div>
             </div>
-            <div className="solution-text">
-              <h3>One Integrated Platform</h3>
-              <p>Combining cutting-edge technology with sovereign-grade security</p>
+            
+            <div className="solution-right">
+              <div className="solution-pillars-boxed">
+                <div className="solution-box">
+                  <div className="box-icon">🛰️</div>
+                  <h3>Ground Stations (GSaaS)</h3>
+                  <p>Pay-per-use RF and optical ground access, globally distributed and sovereign-deployable.</p>
+                </div>
+                <div className="solution-box">
+                  <div className="box-icon">🤖</div>
+                  <h3>Mission Control Software</h3>
+                  <p>AI-driven scheduling, automated TT&C, anomaly detection, API-first integration.</p>
+                </div>
+                <div className="solution-box">
+                  <div className="box-icon">📊</div>
+                  <h3>Data & Processing</h3>
+                  <p>Secure pipelines, EO correction, ML analytics, sovereign cloud delivery.</p>
+                </div>
+                <div className="solution-box">
+                  <div className="box-icon">🔐</div>
+                  <h3>Quantum-Safe Security</h3>
+                  <p>Post-quantum cryptography today. QKD-ready architecture for tomorrow.</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="solution-grid">
-            <div className="solution-card">
-              <div className="card-icon-large">🛰️</div>
-              <h3>Ground Stations (GSaaS)</h3>
-              <p>Pay-per-use RF and optical ground access, globally distributed and sovereign-deployable.</p>
-              <div className="card-accent"></div>
-            </div>
-            <div className="solution-card">
-              <div className="card-icon-large">🤖</div>
-              <h3>Mission Control Software</h3>
-              <p>AI-driven scheduling, automated TT&C, anomaly detection, API-first integration.</p>
-              <div className="card-accent"></div>
-            </div>
-            <div className="solution-card">
-              <div className="card-icon-large">📊</div>
-              <h3>Data & Processing</h3>
-              <p>Secure pipelines, EO correction, ML analytics, sovereign cloud delivery.</p>
-              <div className="card-accent"></div>
-            </div>
-            <div className="solution-card">
-              <div className="card-icon-large">🔐</div>
-              <h3>Quantum-Safe Security</h3>
-              <p>Post-quantum cryptography today. QKD-ready architecture for tomorrow.</p>
-              <div className="card-accent"></div>
-            </div>
-          </div>
+          
           <div className="section-footer">
             <p className="highlight-text">
               No CapEx. No vendor lock-in. No foreign control.
