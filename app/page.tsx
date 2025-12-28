@@ -185,9 +185,9 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <div className="section-number">02</div>
-            <h2 className="section-title">The Solution</h2>
+            <h2 className="section-title">Quantum-secure ground infrastructure—delivered as an assured service.</h2>
             <p className="section-subtitle">
-              AstraVeda delivers sovereign, quantum-secure Ground Station-as-a-Service.
+              Astraveda provides a unified <strong>RF + optical</strong> ground architecture secured end-to-end with <strong>post-quantum cryptography</strong>, delivering long-term confidentiality and command integrity—while supporting high-throughput links and QKD-ready operations.
             </p>
           </div>
           
@@ -196,14 +196,12 @@ export default function Home() {
               <div className="solution-sticky-content">
                 <div className="quantum-notation">
                   <span className="ket-bracket ket-left">⟨</span>
-                  <span className="ket-content">4 pillars</span>
+                  <span className="ket-content">4 pillars (integrated, not bolt-on)</span>
                   <span className="ket-bracket ket-right">⟩</span>
                 </div>
-                {/* <div className="quantum-arrow-inline">→</div> */}
                 <div className="solution-platform-sticky">
-                  <h3 className="platform-title-sticky">One Integrated Platform</h3>
-                  <p className="platform-description-sticky">Combining cutting-edge technology with sovereign-grade security</p>
-                  <p className="platform-subtitle">AstraVeda Platform</p>
+                  <h3 className="platform-title-sticky">AstraVeda Platform</h3>
+                  <p className="platform-description-sticky">Integrated quantum-secure ground infrastructure</p>
                 </div>
               </div>
             </div>
@@ -211,24 +209,24 @@ export default function Home() {
             <div className="solution-right">
               <div className="solution-pillars-boxed">
                 <div className="solution-box">
-                  <div className="box-icon">🛰️</div>
-                  <h3>Ground Stations (GSaaS)</h3>
-                  <p>Pay-per-use RF and optical ground access, globally distributed and sovereign-deployable.</p>
+                  <div className="box-icon">🔐</div>
+                  <h3>PQC across every critical link</h3>
+                  <p>Native Post-Quantum Cryptography across TT&C, software updates, mission data transport, and station-to-station traffic—using hybrid transition modes aligned with NIST and NSA CNSA 2.0 guidance (e.g., Dilithium signatures, Kyber key exchange).</p>
+                </div>
+                <div className="solution-box">
+                  <div className="box-icon">📡</div>
+                  <h3>Hybrid RF–optical network</h3>
+                  <p>RF for robust all-weather operations; optical for secure narrow-beam high throughput when conditions allow—coordinated by an orchestration layer that manages mode selection and handovers.</p>
+                </div>
+                <div className="solution-box">
+                  <div className="box-icon">🔬</div>
+                  <h3>Dual-use optical terminals (QKD + lasercom)</h3>
+                  <p>Optical ground terminals designed for quantum key reception and multi-Gbps to tens-of-Gbps laser downlinks, including QKD post-processing within the same operational framework.</p>
                 </div>
                 <div className="solution-box">
                   <div className="box-icon">🤖</div>
-                  <h3>Mission Control Software</h3>
-                  <p>AI-driven scheduling, automated TT&C, anomaly detection, API-first integration.</p>
-                </div>
-                <div className="solution-box">
-                  <div className="box-icon">📊</div>
-                  <h3>Data & Processing</h3>
-                  <p>Secure pipelines, EO correction, ML analytics, sovereign cloud delivery.</p>
-                </div>
-                <div className="solution-box">
-                  <div className="box-icon">🔐</div>
-                  <h3>Quantum-Safe Security</h3>
-                  <p>Post-quantum cryptography today. QKD-ready architecture for tomorrow.</p>
+                  <h3>Mission Control Software as the trust anchor</h3>
+                  <p>Cloud-native MCS that orchestrates RF/optical assets and embeds cryptographic trust: telemetry ingest, command validation/uplink, scheduling, health monitoring, secure automation, and multi-tenant separation.</p>
                 </div>
               </div>
             </div>
@@ -236,7 +234,7 @@ export default function Home() {
           
           <div className="section-footer">
             <p className="highlight-text">
-              No CapEx. No vendor lock-in. No foreign control.
+              A scalable transition to quantum-safe operations—without forcing a redesign of the space segment.
             </p>
           </div>
         </div>
