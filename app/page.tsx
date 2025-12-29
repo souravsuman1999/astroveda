@@ -115,11 +115,11 @@ export default function Home() {
             Building secure, scalable satellite ground networks for governments, defense, and next-generation space operators.
           </p>
           <div className="hero-locations">
-            <span>🇮🇳 India</span>
-            <span>🇬🇧 UK</span>
-            <span>🇪🇺 Europe</span>
-            <span>🇦🇪 Middle East</span>
-            <span>🇺🇸 Strategic US Interest</span>
+            <span> India</span>
+            <span> UK</span>
+            <span> Europe</span>
+            <span> Middle East</span>
+            <span> Strategic US Interest</span>
           </div>
           <div className="hero-buttons">
             <a href="#contact" className="btn btn-primary">
@@ -750,7 +750,7 @@ export default function Home() {
           </div>
           <p>Confidential · Strategic Infrastructure Platform</p>
           <p style={{ marginTop: '1rem', fontSize: '0.9rem', opacity: 0.7 }}>
-            © 2024 AstraVeda Spacetech. All rights reserved.
+            © 2025 AstraVeda Spacetech. All rights reserved.
           </p>
         </div>
       </footer>
