@@ -71,7 +71,7 @@ export default function Home() {
         <div className="header-content">
           <div className="logo">
             <Image 
-              src="/img/group1.svg" 
+              src="/img/Frame1.svg" 
               alt="AstraVeda Logo" 
               width={120} 
               height={40}
@@ -339,31 +339,57 @@ export default function Home() {
               AstraVeda is built for organizations where control, security, and future-readiness are non-negotiable.
             </p>
           </div>
-          <div className="who-grid">
-            <div className="who-card">
-              <div className="who-icon">🏛️</div>
-              <h3>Government Space Agencies</h3>
-              <p>National missions requiring full sovereign control of TT&C and data.</p>
+          <div className="who-circular-container">
+            <div className="who-center-circle">
+              <div className="who-center-content">
+                <span className="who-center-icon">🌌</span>
+                <span className="who-center-text">AstraVeda</span>
+              </div>
             </div>
-            <div className="who-card">
-              <div className="who-icon">🛡️</div>
-              <h3>Defense & Intelligence Missions</h3>
-              <p>Secure, quantum-resilient ground infrastructure for classified operations.</p>
+            <div className="who-orbital-item" style={{ '--angle': '0deg' } as React.CSSProperties}>
+              <div className="who-orbital-circle">
+                <div className="who-orbital-icon">🏛️</div>
+              </div>
+              <div className="who-orbital-content">
+                <h3>Government Space Agencies</h3>
+                <p>National missions requiring full sovereign control of TT&C and data.</p>
+              </div>
             </div>
-            <div className="who-card">
-              <div className="who-icon">📡</div>
-              <h3>Commercial Satellite Constellations</h3>
-              <p>EO, telecom, IoT, and broadband operators needing scalable GSaaS.</p>
+            <div className="who-orbital-item" style={{ '--angle': '78deg' } as React.CSSProperties}>
+              <div className="who-orbital-circle">
+                <div className="who-orbital-icon">🛡️</div>
+              </div>
+              <div className="who-orbital-content">
+                <h3>Defense & Intelligence Missions</h3>
+                <p>Secure, quantum-resilient ground infrastructure for classified operations.</p>
+              </div>
             </div>
-            <div className="who-card">
-              <div className="who-icon">🌍</div>
-              <h3>Emerging Space Nations</h3>
-              <p>Countries building national space capability without heavy CapEx.</p>
+            <div className="who-orbital-item" style={{ '--angle': '144deg' } as React.CSSProperties}>
+              <div className="who-orbital-circle">
+                <div className="who-orbital-icon">📡</div>
+              </div>
+              <div className="who-orbital-content">
+                <h3>Commercial Satellite Constellations</h3>
+                <p>EO, telecom, IoT, and broadband operators needing scalable GSaaS.</p>
+              </div>
             </div>
-            <div className="who-card">
-              <div className="who-icon">🏢</div>
-              <h3>Private Corporations & Strategic Enterprises</h3>
-              <p>Space-enabled, data-intensive companies requiring secure, compliant, sovereign-grade satellite communications.</p>
+            <div className="who-orbital-item" style={{ '--angle': '216deg' } as React.CSSProperties}>
+              <div className="who-orbital-circle">
+                <div className="who-orbital-icon">🌍</div>
+              </div>
+              <div className="who-orbital-content">
+                <h3>Emerging Space Nations</h3>
+                <p>Countries building national space capability without heavy CapEx.</p>
+              </div>
+            </div>
+            <div className="who-orbital-item" style={{ '--angle': '283deg' } as React.CSSProperties}>
+              <div className="who-orbital-circle">
+                <div className="who-orbital-icon">🏢</div>
+              </div>
+              <div className="who-orbital-content">
+                <h3>Private Corporations & Strategic Enterprises</h3>
+                <p>Space-enabled, data-intensive companies requiring secure, compliant, sovereign-grade satellite communications.</p>
+              </div>
             </div>
           </div>
           <div className="section-footer">

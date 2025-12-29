@@ -35,9 +35,62 @@
   .features-showcase{
     gap: 2rem;
   }
-  .who-card{
-    padding: 1.3rem;
+  .who-circular-container {
+    height: auto;
+    min-height: auto;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem 0;
+  }
 
+  .who-center-circle {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 1rem;
+  }
+
+  .who-center-icon {
+    font-size: 2.5rem;
+  }
+
+  .who-center-text {
+    font-size: 0.9rem;
+  }
+
+  .who-orbital-item {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+
+  .who-orbital-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .who-orbital-icon {
+    font-size: 3rem;
+  }
+
+  .who-orbital-content {
+    padding: 1.25rem;
+  }
+
+  .who-orbital-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .who-orbital-content p {
+    font-size: 0.9rem;
   }
 
   h1 {
@@ -149,7 +202,6 @@
 
   .problem-grid,
   .features-grid,
-  .who-grid,
   .stats-grid,
   .why-now-grid {
     grid-template-columns: 1fr;
@@ -343,9 +395,17 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .features-grid,
-  .who-grid {
+  .features-grid {
     grid-template-columns: 1fr;
+  }
+
+  .who-circular-container {
+    height: 650px;
+  }
+
+  .who-orbital-item {
+    width: 240px;
+    transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) translateY(-240px) rotate(calc(-1 * var(--angle, 0deg)));
   }
 
   .stats-grid,
@@ -414,9 +474,20 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .features-grid,
-  .who-grid {
+  .features-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .who-circular-container {
+    height: 500px;
+  }
+
+  .who-orbital-item {
+    width: 240px;
+  }
+
+  .who-orbital-item {
+    transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) translateY(-180px) rotate(calc(-1 * var(--angle, 0deg)));
   }
 
   .stats-grid,
@@ -579,9 +650,17 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .features-grid,
-  .who-grid {
+  .features-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .who-circular-container {
+    height: 820;
+  }
+
+  .who-orbital-item {
+    width: 260px;
+    transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) translateY(-270px) rotate(calc(-1 * var(--angle, 0deg)));
   }
 
   .stats-grid,
@@ -623,9 +702,17 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .features-grid,
-  .who-grid {
+  .features-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .who-circular-container {
+    height: 820px;
+  }
+
+  .who-orbital-item {
+    width: 280px;
+    transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) translateY(-300px) rotate(calc(-1 * var(--angle, 0deg)));
   }
 
   .stats-grid,
