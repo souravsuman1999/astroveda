@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -69,8 +70,14 @@ export default function Home() {
       <header className="header">
         <div className="header-content">
           <div className="logo">
-            <span className="logo-icon">🚀</span>
-            <span>ASTRAVEDA</span>
+            <Image 
+              src="/img/group1.svg" 
+              alt="AstraVeda Logo" 
+              width={120} 
+              height={40}
+              className="logo-icon"
+              style={{ objectFit: 'contain' }}
+            />
           </div>
           <button 
             className={`hamburger ${isMenuOpen ? 'active' : ''}`}
@@ -719,7 +726,7 @@ export default function Home() {
                 <div className="contact-icon">📧</div>
                 <div>
                   <h4>Email</h4>
-                  <a href="mailto:info@astraveda.space">info@astraveda.space</a>
+                  <a href="mailto:contactus@astraveda.space">contactus@astraveda.space</a>
                 </div>
               </div>
               <div className="contact-item">
@@ -733,7 +740,7 @@ export default function Home() {
                 <div className="contact-icon">📅</div>
                 <div>
                   <h4>Book a Meeting</h4>
-                  <a href="https://meet.google.com" target="_blank" rel="noopener noreferrer">Schedule a call</a>
+                  <a href="mailto:abhinav@astraveda.space">abhinav@astraveda.space</a>
                 </div>
               </div>
             </div>
@@ -745,7 +752,14 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-logo">
-            <span className="logo-icon">🚀</span>
+            <Image 
+              src="/img/Group3.png" 
+              alt="AstraVeda Logo" 
+              width={40} 
+              height={40}
+              className="logo-icon"
+              style={{ objectFit: 'contain' }}
+            />
             <span>ASTRAVEDA</span>
           </div>
           <p>Confidential · Strategic Infrastructure Platform</p>
