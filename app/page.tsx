@@ -767,6 +767,10 @@ export default function Home() {
                 <div>
                   <h4>Book a Meeting</h4>
                   <a href="mailto:abhinav@astraveda.space">abhinav@astraveda.space</a>
+                  <br />
+                  <a href="https://meet.google.com/psa-wgcf-xsv?authuser=0" target="_blank" rel="noopener noreferrer">
+                    
+                  </a>
                 </div>
               </div>
             </div>
