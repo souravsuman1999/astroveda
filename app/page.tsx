@@ -71,7 +71,7 @@ export default function Home() {
         <div className="header-content">
           <div className="logo">
             <Image 
-              src="/img/Frame1.svg" 
+              src="/img/logo.png" 
               alt="AstraVeda Logo" 
               width={120} 
               height={40}
@@ -767,7 +767,7 @@ export default function Home() {
                 <div>
                   <h4>Book a Meeting</h4>
                   
-                  <a href="https://meet.google.com/psa-wgcf-xsv?authuser=0" target="_blank" rel="noopener noreferrer">
+                  <a href="https://calendar.app.google/Z97qyquwWa8w8vyZ8" target="_blank" rel="noopener noreferrer">
                     Google Meet Link
                   </a>
                 </div>
@@ -781,14 +781,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-logo">
-            <Image 
-              src="/img/Group3.png" 
-              alt="AstraVeda Logo" 
-              width={40} 
-              height={40}
-              className="logo-icon"
-              style={{ objectFit: 'contain' }}
-            />
+         
             <span>ASTRAVEDA</span>
           </div>
           <p>Confidential · Strategic Infrastructure Platform</p>
